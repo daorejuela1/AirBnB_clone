@@ -7,12 +7,13 @@ from models.base_model import BaseModel
 from models import storage
 import json
 import shlex
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """ Holberton command prompt to access models data """
     prompt = '(hbnb) '
-    my_dict = {"BaseModel": BaseModel}
+    my_dict = {"BaseModel": BaseModel, "User": User}
 
     def do_quit(self, arg):
         """ Close program and saves safely data """
