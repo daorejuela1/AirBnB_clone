@@ -1,11 +1,11 @@
 """Unit test for the base class BASE
 """
 import unittest
-import json
+# import json
 import pep8
 from datetime import datetime
-from io import StringIO
-from unittest.mock import patch
+# from io import StringIO
+# from unittest.mock import patch
 from models.base_model import BaseModel
 
 
@@ -96,6 +96,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertTrue(type(my_new_model.id) == str)
         self.assertTrue(type(my_new_model.created_at) == datetime)
         self.assertTrue(type(my_new_model.updated_at) == datetime)
+
 
 if __name__ == '__main__':
     unittest.main()
