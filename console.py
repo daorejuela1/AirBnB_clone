@@ -28,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        my_data = arg.split()
+        my_data = shlex.split(arg)
         if my_data[0] not in HBNBCommand.my_dict.keys():
             print("** class doesn't exist **")
             return
@@ -41,8 +41,8 @@ class HBNBCommand(cmd.Cmd):
         Prints the string representation of an instance
         based on the class name and id
         """
-        tokens = arg.split()
-        if len(arg) == 0:
+        tokens = shlex.split(arg)
+        if len(tokens) == 0:
             print("** class name missing **")
             return
         if tokens[0] not in HBNBCommand.my_dict.keys():
@@ -65,8 +65,8 @@ class HBNBCommand(cmd.Cmd):
         Deletes an instance based on the class name and id
         (saves the changes into the JSON file)
         """
-        tokens = arg.split()
-        if len(arg) == 0:
+        tokens = shlex.split(arg)
+        if len(tokens) == 0:
             print("** class name missing **")
             return
         if tokens[0] not in HBNBCommand.my_dict.keys():
@@ -99,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
                                (**objects_dict[key])))
             print(json.dumps(my_json))
             return
-        token = arg.split()
+        token = shlex.split(arg)
         if token[0] in HBNBCommand.my_dict.keys():
             for key in objects_dict:
                 if token[0] in key:

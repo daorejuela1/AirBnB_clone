@@ -4,9 +4,6 @@
 import unittest
 # import json
 import pep8
-from datetime import datetime
-# from io import StringIO
-# from unittest.mock import patch
 from models.engine.file_storage import FileStorage
 
 
