@@ -8,12 +8,25 @@ from models import storage
 import json
 import shlex
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
     """ Holberton command prompt to access models data """
     prompt = '(hbnb) '
-    my_dict = {"BaseModel": BaseModel, "User": User}
+    my_dict = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+            }
 
     def do_quit(self, arg):
         """ Close program and saves safely data """
