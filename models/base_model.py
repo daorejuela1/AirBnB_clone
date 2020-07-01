@@ -10,6 +10,7 @@ from models import storage
 class BaseModel():
     """ Defines all common attributes/methods for other classes """
     def __init__(self, *args, **kwargs):
+        """ Initializes the instances attributes """
         if kwargs:
             date_format = "%Y-%m-%dT%H:%M:%S.%f"
             k_dict = kwargs.copy()
@@ -25,6 +26,7 @@ class BaseModel():
             storage.new(self)
 
     def __str__(self):
+        """ Prints object in friendly format"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
