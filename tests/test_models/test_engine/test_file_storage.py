@@ -6,6 +6,7 @@ import unittest
 import pep8
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models import storage
 import os
 
 
@@ -91,6 +92,9 @@ class TestBaseClass(unittest.TestCase):
         my_dict2 = my_obj.all()
         self.assertEqual(my_dict1, my_dict2)
 
+    def test_instance(self):
+        """ Check the existence of instance """
+        self.assertIsInstance(storage, FileStorage)
 
 if __name__ == '__main__':
     unittest.main()
