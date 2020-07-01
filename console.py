@@ -77,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         objs_dict = storage.all()
         key = tokens[0] + "." + tokens[1]
         if key in objs_dict:
-            obj_instance = HBNBCommand.my_dict[tokens[0]](**objs_dict[key])
+            obj_instance = str(objs_dict[key])
             print(obj_instance)
         else:
             print("** no instance found **")
@@ -117,16 +117,14 @@ class HBNBCommand(cmd.Cmd):
         objects_dict = storage.all()
         if not arg:
             for key in objects_dict:
-                my_json.append(str(HBNBCommand.my_dict[key.split(".")[0]]
-                               (**objects_dict[key])))
+                my_json.append(str(objects_dict[key]))
             print(json.dumps(my_json))
             return
         token = shlex.split(arg)
         if token[0] in HBNBCommand.my_dict.keys():
             for key in objects_dict:
                 if token[0] in key:
-                    my_json.append(str(HBNBCommand.my_dict[token[0]]
-                                   (**objects_dict[key])))
+                    my_json.append(str(objects_dict[key]))
             print(json.dumps(my_json))
         else:
             print("** class doesn't exist **")
@@ -161,12 +159,12 @@ class HBNBCommand(cmd.Cmd):
         if (len(my_data) == 3):
             print("** value missing **")
             return
-        my_instance = HBNBCommand.my_dict[my_data[0]](**objs_dict[key])
+        my_instance = objs_dict[key]
         if hasattr(my_instance, my_data[2]):
             data_type = type(getattr(my_instance, my_data[2]))
-            objs_dict[key][my_data[2]] = data_type(my_data[3])
+            setattr(my_instance, my_data[2], data_type(my_data[3]))
         else:
-            objs_dict[key][my_data[2]] = my_data[3]
+            setattr(my_instance, my_data[2], my_data[3])
         storage.save()
 
 
