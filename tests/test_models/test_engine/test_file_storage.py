@@ -18,11 +18,13 @@ class TestBaseClass(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
+        """ condition to test file saving """
         with open("test.json", 'w'):
             FileStorage._FileStorage__file_path = "test.json"
             FileStorage._FileStorage__objects = {}
 
     def tearDown(self):
+        """ destroys created file """
         FileStorage._FileStorage__file_path = "file.json"
         os.remove("test.json")
 
