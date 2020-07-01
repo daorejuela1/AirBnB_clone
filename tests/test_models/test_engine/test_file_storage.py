@@ -5,6 +5,8 @@ import unittest
 # import json
 import pep8
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+import os
 
 
 class TestBaseClass(unittest.TestCase):
@@ -14,6 +16,15 @@ class TestBaseClass(unittest.TestCase):
     """
 
     maxDiff = None
+
+    def setUp(self):
+        with open("test.json", 'w'):
+            FileStorage._FileStorage__file_path = "test.json"
+            FileStorage._FileStorage__objects = {}
+
+    def tearDown(self):
+        FileStorage._FileStorage__file_path = "file.json"
+        os.remove("test.json")
 
     def test_module_doc(self):
         """ check for module documentation """
@@ -36,6 +47,32 @@ class TestBaseClass(unittest.TestCase):
         result = style.check_files([file1, file2])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warning).")
+
+    def test_all(self):
+        """ Test method all from filestorage """
+        my_obj = FileStorage()
+        my_dict = my_obj.all()
+        self.assertTrue(type(my_dict) == dict)
+
+    def test_new(self):
+        """ Tests method new for filestorage """
+        my_obj = FileStorage()
+        new_obj = BaseModel()
+        my_obj.new(new_obj)
+        my_dict = my_obj.all()
+        key = "{}.{}".format(type(new_obj).__name__, new_obj.id)
+        self.assertTrue(key in my_dict)
+
+    def test_save(self):
+        """ Tests the save method for filestorage """
+        my_obj = FileStorage()
+        new_obj = BaseModel()
+        my_obj.new(new_obj)
+        my_dict1 = my_obj.all()
+        my_obj.save()
+        my_obj.reload()
+        my_dict2 = my_obj.all()
+        self.assertEqual(my_dict1, my_dict2)
 
 
 if __name__ == '__main__':
