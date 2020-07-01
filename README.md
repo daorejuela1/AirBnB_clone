@@ -4,12 +4,12 @@
 ![Console](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/console_airbnb.png)
 "Structure of the project"
 
-Storage engine -> Json file.
-Console -> cmd with python library cmd.Cmd
+`Storage engine -> Json file.`
+`Console -> cmd with python library cmd.Cmd`
 
 # Description of the project
 
-This is the first part of the project in which we are creating a way to control the modules that our web page is going to use by intervening a database in json format.
+This is the first part of the project that simulates an airbnb application in which we are creating a way to control the modules that our web page is going to use by intervening a database in json format. Here we apply object oriented programming, python data translation and command interpreted logic to deliver a local database that can be modified by commands.
 
 # Prerequisites 
 
@@ -147,4 +147,4 @@ Creating a new basemodel, counting basemodel, delete and count again
 
 ![Destroy](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif)
 
-Coded with love by: [Bryan Ortiz](https://github.com/bryano13) & [David Orejuela](https://github.com/daorejuela1)
+Coded with ❤️ and 🔨 by: [Bryan Ortiz](https://github.com/bryano13) & [David Orejuela](https://github.com/daorejuela1)
