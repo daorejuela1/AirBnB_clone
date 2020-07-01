@@ -6,7 +6,6 @@ import unittest
 import pep8
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-from models import storage
 import os
 
 
@@ -90,7 +89,11 @@ class TestBaseClass(unittest.TestCase):
         my_obj.save()
         my_obj.reload()
         my_dict2 = my_obj.all()
-        self.assertEqual(my_dict1, my_dict2)
+        for key in my_dict1:
+            key1 = key
+        for key in my_dict2:
+            key2 = key
+        self.assertEqual(my_dict1[key1].to_dict(), my_dict2[key2].to_dict())
 
 
 if __name__ == '__main__':
