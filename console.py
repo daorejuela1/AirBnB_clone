@@ -197,11 +197,11 @@ class HBNBCommand(cmd.Cmd):
         line = ""
         try:
             inputs = values[1].split("(")[1].split(",")
-            for number in range(len(inputs)):
-                if (number != len(inputs) - 1):
-                    line = line + " " + shlex.split(inputs[number])[0]
+            for num in range(len(inputs)):
+                if (num != len(inputs) - 1):
+                    line = line + " " + shlex.split(inputs[num])[0]
                 else:
-                    line = line + " " +shlex.split(inputs[number][0:-1])[0]
+                    line = line + " " + shlex.split(inputs[num][0:-1])[0]
         except IndexError:
             line = ""
         line = class_name + line
