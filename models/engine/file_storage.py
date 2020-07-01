@@ -7,12 +7,12 @@ import os
 
 
 class FileStorage():
-    """Serialize/Deserialize python data"""
+    """Serialize/Deserialize python data """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """ returns the dictionaries"""
+        """ returns the dictionaries """
         return (self.__objects)
 
     def new(self, obj):
@@ -24,14 +24,14 @@ class FileStorage():
 
     def save(self):
         """ saves in json format to a file """
-        with open(self.__file_path, 'w') as file_path:
+        with open(FileStorage.__file_path, 'w') as file_path:
             file_path.write(json.dumps(self.__objects))
 
     def reload(self):
         """ loads from json file """
-        if not os.path.isfile(self.__file_path):
+        if not os.path.isfile(FileStorage.__file_path):
             return
-        with open(self.__file_path, "r") as file_path:
+        with open(FileStorage.__file_path, "r") as file_path:
             my_data = file_path.read()
             if (my_data):
                 self.__objects = json.loads(my_data)
