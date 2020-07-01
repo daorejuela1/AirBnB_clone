@@ -184,7 +184,8 @@ class HBNBCommand(cmd.Cmd):
             "all": self.do_all,
             "count": self.do_count,
             "show": self.do_show,
-            "":
+            "destroy": self.do_destroy,
+            "update": self.do_update
         }
         arg = arg.strip()
         values = arg.split(".")
@@ -193,11 +194,17 @@ class HBNBCommand(cmd.Cmd):
             return
         class_name = values[0]
         command = values[1].split("(")[0]
+        line = ""
         try:
-            line = shlex.split(values[1].split("(")[1][0:-1])[0]
+            inputs = values[1].split("(")[1].split(",")
+            for number in range(len(inputs)):
+                if (number != len(inputs) - 1):
+                    line = line + " " + shlex.split(inputs[number])[0]
+                else:
+                    line = line + " " +shlex.split(inputs[number][0:-1])[0]
         except IndexError:
             line = ""
-        line = class_name + " " + line
+        line = class_name + line
         if (command in val_dict.keys()):
             val_dict[command](line.strip())
 
