@@ -13,11 +13,11 @@ class FileStorage():
 
     def all(self):
         """ returns the dictionaries"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """ create a new object """
-        class_name = type(obj).__name__
+        class_name = obj.__class__.__name__
         my_id = obj.id
         instance_key = class_name + "." + my_id
         FileStorage.__objects[instance_key] = obj.to_dict()
