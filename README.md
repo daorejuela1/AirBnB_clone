@@ -57,14 +57,14 @@ python3 -m unittest discover tests
 | update | Updates an instance based on the class name and `id` by adding or updating attribute (save the change into the JSON file). Ex: `$ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"` |
 
 ## Normal command input
-<center>
+
 |Command| Example|
 |--|--|
 |create| create [class name] |
 |show| show [class name] [id] |
 |all| create [class name] [id]|
 |update| create [class name] [id] [arg_name] [arg_value]|
-</center>
+
 
 ## Alternative command input
 |Command| Example|
