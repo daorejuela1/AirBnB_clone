@@ -2,7 +2,6 @@
 """Unit test for the file storage class
 """
 import unittest
-# import json
 import pep8
 from models.engine import file_storage
 from models.engine.file_storage import FileStorage
@@ -11,8 +10,9 @@ import os
 from models import storage
 
 
-class TestBaseClass(unittest.TestCase):
-    """TestBaseClass resume
+class TestFileStorageClass(unittest.TestCase):
+    """TestFileStorage test of suits for the engine
+    testing save, all, reload and new methods
     Args:
         unittest (): Propertys for unit testing
     """
