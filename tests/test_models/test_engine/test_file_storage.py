@@ -4,9 +4,11 @@
 import unittest
 # import json
 import pep8
+from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import os
+from models import storage
 
 
 class TestBaseClass(unittest.TestCase):
@@ -33,7 +35,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(FileStorage.__doc__) > 0)
+        self.assertTrue(len(file_storage.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
@@ -94,6 +96,10 @@ class TestBaseClass(unittest.TestCase):
         for key in my_dict2:
             key2 = key
         self.assertEqual(my_dict1[key1].to_dict(), my_dict2[key2].to_dict())
+
+    def check_instance(self):
+        """ Check the existence of instance """
+        self.assertIsInstance(storage, FileStorage)
 
 
 if __name__ == '__main__':
