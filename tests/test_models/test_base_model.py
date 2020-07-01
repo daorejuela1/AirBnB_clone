@@ -125,6 +125,22 @@ class TestBaseClass(unittest.TestCase):
         actual = my_new_model.updated_at
         self.assertTrue(actual > previous)
 
+    def test_isinstance(self):
+        """ Check if object is basemodel instance """
+        obj = BaseModel()
+        self.assertIsInstance(obj, BaseModel)
+
+    def test_executable_file(self):
+        """ Check if file have permissions to execute"""
+        # Check for read access
+        is_read_true = os.access('models/base_model.py', os.R_OK)
+        self.assertTrue(is_read_true)
+        # Check for write access
+        is_write_true = os.access('models/base_model.py', os.W_OK)
+        self.assertTrue(is_write_true)
+        # Check for execution access
+        is_exec_true = os.access('models/base_model.py', os.X_OK)
+        self.assertTrue(is_exec_true)
 
 if __name__ == '__main__':
     unittest.main()
