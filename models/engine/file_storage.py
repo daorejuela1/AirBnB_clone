@@ -24,17 +24,15 @@ class FileStorage():
 
     def save(self):
         """ saves in json format to a file """
-        with open(FileStorage.__file_path, 'w') as file_path:
-            file_path.write(json.dumps(FileStorage.__objects))
+        if FileStorage.__file_path:
+            with open(FileStorage.__file_path, 'w') as file_path:
+                file_path.write(json.dumps(FileStorage.__objects))
 
     def reload(self):
         """ loads from json file """
-        try:
-            if not os.path.isfile(FileStorage.__file_path):
-                return
-            with open(FileStorage.__file_path, "r") as file_path:
-                my_data = file_path.read()
-                if (my_data):
-                    FileStorage.__objects = json.loads(my_data)
-        except:
-            pass
+        if not os.path.isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, "r") as file_path:
+            my_data = file_path.read()
+            if (my_data):
+                FileStorage.__objects = json.loads(my_data)
