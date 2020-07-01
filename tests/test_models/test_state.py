@@ -8,8 +8,9 @@ from models.state import State
 from models.base_model import BaseModel
 
 
-class TestUserClass(unittest.TestCase):
-    """TestUserClass resume
+class TestStateClass(unittest.TestCase):
+    """TestStateClass checks for the use of
+    state class
     Args:
         unittest (): Propertys for unit testing
     """
