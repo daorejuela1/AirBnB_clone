@@ -28,6 +28,10 @@ class HBNBCommand(cmd.Cmd):
         "Review": Review
             }
 
+    def do_nothing(self, arg):
+        """ Does nothing """
+        pass
+
     def do_quit(self, arg):
         """ Close program and saves safely data """
         return True
@@ -36,6 +40,10 @@ class HBNBCommand(cmd.Cmd):
         """ Close program and saves safely data """
         print("")
         return True
+
+    def emptyline(self):
+        """ Overrides the empty line method """
+        pass
 
     def do_create(self, arg):
         """ Creates a new instance of the basemodel class """
