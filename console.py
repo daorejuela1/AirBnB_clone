@@ -167,6 +167,22 @@ class HBNBCommand(cmd.Cmd):
             setattr(my_instance, my_data[2], my_data[3])
         storage.save()
 
+    def default(self, arg):
+        """ handle new ways of inputing data """
+        val_dict = {
+            "all()": self.do_all
+        }
+        arg = arg.strip()
+        values = arg.split(".")
+        if len(values) != 2:
+            cmd.Cmd.default(self, arg)
+            return
+        if (values[1] in val_dict.keys()):
+            val_dict[values[1]](values[0])
+
+
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
