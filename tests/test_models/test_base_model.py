@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unit test for the base class BASE
+"""Unit test for the base class base model
 """
 import unittest
 # import json
@@ -13,7 +13,7 @@ import os
 
 
 class TestBaseClass(unittest.TestCase):
-    """TestBaseClass resume
+    """TestBaseClass Test the base class
     Args:
         unittest (): Propertys for unit testing
     """

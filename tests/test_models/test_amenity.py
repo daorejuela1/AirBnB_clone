@@ -10,8 +10,9 @@ from models import storage
 import os
 
 
-class TestUserClass(unittest.TestCase):
-    """TestUserClass resume
+class TestAmenityClass(unittest.TestCase):
+    """TestAmenityClass test for the inheretit class
+    Amenity, this tests that the output is as expected
     Args:
         unittest (): Propertys for unit testing
     """
