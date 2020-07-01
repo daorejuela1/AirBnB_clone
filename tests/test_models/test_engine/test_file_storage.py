@@ -26,7 +26,10 @@ class TestBaseClass(unittest.TestCase):
     def tearDown(self):
         """ destroys created file """
         FileStorage._FileStorage__file_path = "file.json"
-        os.remove("test.json")
+        try:
+            os.remove("test.json")
+        except:
+            pass
 
     def test_module_doc(self):
         """ check for module documentation """
@@ -64,6 +67,18 @@ class TestBaseClass(unittest.TestCase):
         my_dict = my_obj.all()
         key = "{}.{}".format(type(new_obj).__name__, new_obj.id)
         self.assertTrue(key in my_dict)
+
+    def test_empty_reload(self):
+        """ Empty reload function """
+        my_obj = FileStorage()
+        new_obj = BaseModel()
+        my_obj.new(new_obj)
+        my_obj.save()
+        my_dict1 = my_obj.all()
+        os.remove("test.json")
+        my_obj.reload()
+        my_dict2 = my_obj.all()
+        self.assertTrue(my_dict2 == my_dict1)
 
     def test_save(self):
         """ Tests the save method for filestorage """
