@@ -6,6 +6,8 @@ import unittest
 import pep8
 from models.amenity import Amenity
 from models.base_model import BaseModel
+from models import storage
+import os
 
 
 class TestUserClass(unittest.TestCase):
@@ -14,10 +16,19 @@ class TestUserClass(unittest.TestCase):
         unittest (): Propertys for unit testing
     """
 
-    maxDiff = None
+    def tearDown(self):
+        """ destroys created file """
+        storage._FileStorage__file_path = "file.json"
+        try:
+            os.remove("test.json")
+        except FileNotFoundError:
+            pass
 
     def setUp(self):
         """Return to "" class attributes"""
+        with open("test.json", 'w'):
+            storage._FileStorage__file_path = "test.json"
+            storage._FileStorage__objects = {}
         Amenity.name = ""
 
     def test_module_doc(self):

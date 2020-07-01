@@ -8,7 +8,7 @@ from datetime import datetime
 # from io import StringIO
 # from unittest.mock import patch
 from models.base_model import BaseModel
-from models import storage
+from models.engine.file_storage import FileStorage
 import os
 
 
@@ -23,12 +23,12 @@ class TestBaseClass(unittest.TestCase):
     def setUp(self):
         """ condition to test file saving """
         with open("test.json", 'w'):
-            storage._FileStorage__file_path = "test.json"
-            storage._FileStorage__objects = {}
+            FileStorage._FileStorage__file_path = "test.json"
+            FileStorage._FileStorage__objects = {}
 
     def tearDown(self):
         """ destroys created file """
-        storage._FileStorage__file_path = "file.json"
+        FileStorage._FileStorage__file_path = "file.json"
         try:
             os.remove("test.json")
         except FileNotFoundError:
