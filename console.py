@@ -171,27 +171,35 @@ class HBNBCommand(cmd.Cmd):
         """
         Counts number of instances of a class
         """
-        # prints the whole file
         counter = 0
         objects_dict = storage.all()
         for key in objects_dict:
-            if arg in key:
+            if (arg in key):
                 counter += 1
         print(counter)
 
     def default(self, arg):
         """ handle new ways of inputing data """
         val_dict = {
-            "all()": self.do_all,
-            "count()": self.do_count
+            "all": self.do_all,
+            "count": self.do_count,
+            "show": self.do_show,
+            "":
         }
         arg = arg.strip()
         values = arg.split(".")
         if len(values) != 2:
             cmd.Cmd.default(self, arg)
             return
-        if (values[1] in val_dict.keys()):
-            val_dict[values[1]](values[0])
+        class_name = values[0]
+        command = values[1].split("(")[0]
+        try:
+            line = shlex.split(values[1].split("(")[1][0:-1])[0]
+        except IndexError:
+            line = ""
+        line = class_name + " " + line
+        if (command in val_dict.keys()):
+            val_dict[command](line.strip())
 
 
 if __name__ == '__main__':
