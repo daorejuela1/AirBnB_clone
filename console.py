@@ -37,7 +37,9 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """ Close program and saves safely data """
+        """ Close program and saves safely data, when
+        user input is CTRL + D
+        """
         print("")
         return True
 
@@ -46,7 +48,9 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """ Creates a new instance of the basemodel class """
+        """ Creates a new instance of the basemodel class
+        Structure: create [class name]
+        """
         if not arg:
             print("** class name missing **")
             return
@@ -62,6 +66,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints the string representation of an instance
         based on the class name and id
+        Structure: show [class name] [id]
         """
         tokens = shlex.split(arg)
         if len(tokens) == 0:
@@ -86,6 +91,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Deletes an instance based on the class name and id
         (saves the changes into the JSON file)
+        Structure: destroy [class name] [id]
         """
         tokens = shlex.split(arg)
         if len(tokens) == 0:
@@ -110,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints all string representation of all instances
         based or not on the class name
+        Structure: all [class name] or all
         """
         # prints the whole file
         storage.reload()
@@ -134,6 +141,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         (save the change into the JSON file).
+        Structure: update [class name] [id] [arg_name] [arg_value]
         """
         if not arg:
             print("** class name missing **")
@@ -172,6 +180,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         (save the change into the JSON file).
+        Structure: update [class name] [id] [dictionary]
         """
         if not arg:
             print("** class name missing **")
