@@ -13,21 +13,19 @@ class FileStorage():
 
     def all(self):
         """ returns the dictionaries"""
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """ create a new object """
-        if obj:
-            class_name = obj.__class__.__name__
-            my_id = obj.id
-            instance_key = class_name + "." + my_id
-            FileStorage.__objects[instance_key] = obj.to_dict()
+        class_name = type(obj).__name__
+        my_id = obj.id
+        instance_key = class_name + "." + my_id
+        FileStorage.__objects[instance_key] = obj.to_dict()
 
     def save(self):
         """ saves in json format to a file """
-        if FileStorage.__file_path:
-            with open(FileStorage.__file_path, 'w') as file_path:
-                json.dump(FileStorage.__objects, file_path)
+        with open(FileStorage.__file_path, 'w') as file_path:
+            file_path.write(json.dumps(FileStorage.__objects))
 
     def reload(self):
         """ loads from json file """

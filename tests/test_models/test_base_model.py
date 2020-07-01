@@ -8,6 +8,8 @@ from datetime import datetime
 # from io import StringIO
 # from unittest.mock import patch
 from models.base_model import BaseModel
+from models import storage
+import os
 
 
 class TestBaseClass(unittest.TestCase):
@@ -17,6 +19,20 @@ class TestBaseClass(unittest.TestCase):
     """
 
     maxDiff = None
+
+    def setUp(self):
+        """ condition to test file saving """
+        with open("test.json", 'w'):
+            storage._FileStorage__file_path = "test.json"
+            storage._FileStorage__objects = {}
+
+    def tearDown(self):
+        """ destroys created file """
+        storage._FileStorage__file_path = "file.json"
+        try:
+            os.remove("test.json")
+        except FileNotFoundError:
+            pass
 
     def test_module_doc(self):
         """ check for module documentation """
