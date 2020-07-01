@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unit test for the file storage class
+"""Unit test for the class Place
 """
 import unittest
 # import json
@@ -8,8 +8,8 @@ from models.place import Place
 from models.base_model import BaseModel
 
 
-class TestUserClass(unittest.TestCase):
-    """TestUserClass resume
+class TestPlaceClass(unittest.TestCase):
+    """TestPlaceClass test suit for the place class
     Args:
         unittest (): Propertys for unit testing
     """
