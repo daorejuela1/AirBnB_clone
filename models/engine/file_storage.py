@@ -29,9 +29,12 @@ class FileStorage():
 
     def reload(self):
         """ loads from json file """
-        if not os.path.isfile(FileStorage.__file_path):
-            return
-        with open(FileStorage.__file_path, "r") as file_path:
-            my_data = file_path.read()
-            if (my_data):
-                FileStorage.__objects = json.loads(my_data)
+        try:
+            if not os.path.isfile(FileStorage.__file_path):
+                return
+            with open(FileStorage.__file_path, "r") as file_path:
+                my_data = file_path.read()
+                if (my_data):
+                    FileStorage.__objects = json.loads(my_data)
+        except:
+            pass
