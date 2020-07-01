@@ -97,8 +97,8 @@ class TestBaseClass(unittest.TestCase):
             key2 = key
         self.assertEqual(my_dict1[key1].to_dict(), my_dict2[key2].to_dict())
 
-    def check_instance(self):
-        """ Check the existence of instance """
+    def test_instance(self):
+        """ Check storage """
         self.assertIsInstance(storage, FileStorage)
 
 
