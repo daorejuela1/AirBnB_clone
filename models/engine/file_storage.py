@@ -13,7 +13,7 @@ class FileStorage():
 
     def all(self):
         """ returns the dictionaries"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """ create a new object """
@@ -33,4 +33,5 @@ class FileStorage():
             return
         with open(FileStorage.__file_path, "r") as file_path:
             my_data = file_path.read()
-            FileStorage.__objects = json.loads(my_data)
+            if (my_data):
+                FileStorage.__objects = json.loads(my_data)
