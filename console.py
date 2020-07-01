@@ -128,6 +128,8 @@ class HBNBCommand(cmd.Cmd):
                     my_json.append(str(HBNBCommand.my_dict[token[0]]
                                    (**objects_dict[key])))
             print(json.dumps(my_json))
+        else:
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         """
