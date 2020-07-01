@@ -101,6 +101,14 @@ class TestBaseClass(unittest.TestCase):
         self.assertTrue(type(my_new_model.created_at) == datetime)
         self.assertTrue(type(my_new_model.updated_at) == datetime)
 
+    def test_save(self):
+        """ test save method of basemodel """
+        my_new_model = BaseModel()
+        previous = my_new_model.updated_at
+        my_new_model.save()
+        actual = my_new_model.updated_at
+        self.assertTrue(actual > previous)
+
 
 if __name__ == '__main__':
     unittest.main()
