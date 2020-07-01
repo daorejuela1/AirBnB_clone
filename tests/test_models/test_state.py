@@ -4,6 +4,7 @@
 import unittest
 # import json
 import pep8
+from models import state
 from models.state import State
 from models.base_model import BaseModel
 
@@ -23,7 +24,7 @@ class TestStateClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(State.__doc__) > 0)
+        self.assertTrue(len(state.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """

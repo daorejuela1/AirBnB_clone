@@ -7,6 +7,7 @@ import pep8
 from datetime import datetime
 # from io import StringIO
 # from unittest.mock import patch
+from models import base_model
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import os
@@ -36,7 +37,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(BaseModel.__doc__) > 0)
+        self.assertTrue(len(base_model.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """

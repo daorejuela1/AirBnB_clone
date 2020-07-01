@@ -4,6 +4,7 @@
 import unittest
 # import json
 import pep8
+from models import user
 from models.user import User
 from models.base_model import BaseModel
 
@@ -25,7 +26,7 @@ class TestUserClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(User.__doc__) > 0)
+        self.assertTrue(len(user.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
