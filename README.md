@@ -147,4 +147,4 @@ Creating a new basemodel, counting basemodel, delete and count again
 
 ![Destroy](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif)
 
-Coded with love by: [Bryan Ortiz](https://github.com/bryano13) & [David Orejuela](https://github.com/daorejuela1)
+Coded with ❤️ and 🔨 by: [Bryan Ortiz](https://github.com/bryano13) & [David Orejuela](https://github.com/daorejuela1)
