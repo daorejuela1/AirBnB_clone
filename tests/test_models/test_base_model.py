@@ -41,14 +41,17 @@ class TestBaseClass(unittest.TestCase):
                          "Found code style errors (and warning).")
 
     def test_id_type(self):
+        """ Test id type"""
         my_third = BaseModel()
         self.assertTrue(type(my_third.id) == str)
 
     def test_datetime_type(self):
+        """ Test datetime type """
         my_third = BaseModel()
         self.assertTrue(type(my_third.created_at) == datetime)
 
     def test_str(self):
+        """ Test str output """
         test = BaseModel()
         self.assertEqual(test.__str__(), "[" + test.__class__.__name__ + "]"
                          " (" + test.id + ") " + str(test.__dict__))
