@@ -167,10 +167,23 @@ class HBNBCommand(cmd.Cmd):
             setattr(my_instance, my_data[2], my_data[3])
         storage.save()
 
+    def do_count(self, arg):
+        """
+        Counts number of instances of a class
+        """
+        # prints the whole file
+        counter = 0
+        objects_dict = storage.all()
+        for key in objects_dict:
+            if arg in key:
+                counter += 1
+        print(counter)
+
     def default(self, arg):
         """ handle new ways of inputing data """
         val_dict = {
-            "all()": self.do_all
+            "all()": self.do_all,
+            "count()": self.do_count
         }
         arg = arg.strip()
         values = arg.split(".")
@@ -179,9 +192,6 @@ class HBNBCommand(cmd.Cmd):
             return
         if (values[1] in val_dict.keys()):
             val_dict[values[1]](values[0])
-
-
-
 
 
 if __name__ == '__main__':
