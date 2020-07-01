@@ -32,4 +32,4 @@ class FileStorage():
         if not os.path.isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r") as file_path:
-            FileStorage.__file_path = json.load(file_path)
+            FileStorage.__objects = json.load(file_path)
