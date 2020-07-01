@@ -4,12 +4,14 @@
 import unittest
 # import json
 import pep8
+from models import review
 from models.review import Review
 from models.base_model import BaseModel
 
 
-class TestUserClass(unittest.TestCase):
-    """TestUserClass resume
+class TestReviewClass(unittest.TestCase):
+    """TestReviewClass test suite for the use
+    of the review class
     Args:
         unittest (): Propertys for unit testing
     """
@@ -24,7 +26,7 @@ class TestUserClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(Review.__doc__) > 0)
+        self.assertTrue(len(review.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
