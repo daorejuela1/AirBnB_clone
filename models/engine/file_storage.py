@@ -27,7 +27,7 @@ class FileStorage():
         """ saves in json format to a file """
         if FileStorage.__file_path:
             with open(FileStorage.__file_path, 'w') as file_path:
-                file_path.write(json.dumps(FileStorage.__objects))
+                json.dump(FileStorage.__objects, file_path)
 
     def reload(self):
         """ loads from json file """
