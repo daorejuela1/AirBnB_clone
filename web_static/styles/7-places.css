@@ -1,0 +1,32 @@
+.places h1{
+	text-align: left;
+	font-size: 30px;
+	flex-basis: 100%;
+	height: 0;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.places {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+article {
+	flex: 0 0 auto;
+	width: 390px;
+	height: 50px;
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+article h2{
+	font-size: 30px;
+}
