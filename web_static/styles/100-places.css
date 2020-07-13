@@ -47,6 +47,7 @@ article h2{
 	display: flex;
 	margin-left: 0;
 	justify-content: center;
+	padding: 0.1%;
 }
 
 .information{
@@ -59,7 +60,6 @@ article h2{
 	align-items: center;
 	justify-content: center;
 }
-
 
 .max_guest {
 	width: 100px;
@@ -87,5 +87,83 @@ article h2{
 
 .user {
 	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+article .amenities{
+	margin-top: 40px;
+	width: 100%;
+}
+
+article .amenities h2{
+	font-size: 16px;
+	border-bottom: 1px solid #DDDDDD;
+	text-align: left;
+	margin-left: 0;
+	padding-left: 0;
+	width: 100%;
+}
+
+.reviews{
+margin-top: 40px;
+	width: 100%;
+}
+
+.reviews h2{
+font-size: 16px;
+border-bottom: 1px solid #DDDDDD;
+text-align: left;
+margin-left: 0;
+padding-left: 0;
+}
+
+.reviews ul{
+list-style: none;
+margin-left: 0;
+padding-left: 0;
+text-align: left;
+}
+
+.reviews li h3{
+	margin-left: 0;
+padding-left: 0;
+text-align: left;
+}
+
+article .amenities ul{
+	padding-left: 0;
+}
+
+.pet{
+	margin: 0;
+	padding: 0px 0 0px 25px;
+	list-style: none;
+	background-image: url('../images/icon_pets.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 20px;
+}
+
+.tv{
+	margin: 0;
+	padding: 0px 0 0px 25px;
+	list-style: none;
+	background-image: url('../images/icon_tv.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 20px;
+}
+
+.wifi{
+	margin: 0;
+	padding: 0px 0px 0px 25px;
+	list-style: none;
+	background-image: url('../images/icon_wifi.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 20px;
+}
+
+article .amenities li{
 	margin-bottom: 10px;
 }
